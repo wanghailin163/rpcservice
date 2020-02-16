@@ -105,6 +105,7 @@ public class ServiceCenter implements IServer {
                 Method method = serviceClass.getMethod(methodName, parameterTypes);
                 Object result = method.invoke(serviceClass.newInstance(), arguments);
 
+
                 // 3.将执行结果反序列化，通过socket发送给客户端
                 output = new ObjectOutputStream(client.getOutputStream());
                 output.writeObject(result);
